@@ -30,7 +30,7 @@ const sequenceAdder = (inputSequence) => {
 		previous = current;
 	}
 
-	console.log('toAdd', toAdd);
+	//console.log('toAdd', toAdd);
 
 	if (toAdd.length === 0) {
 		return 0;
