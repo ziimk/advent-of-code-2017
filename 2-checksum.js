@@ -38,7 +38,7 @@ const readFile = () => {
 			resolve(data);
 		});
 	});
-}
+};
 
 const checksum = (input) => {
 	const rows = input.split('\n');
