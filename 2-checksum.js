@@ -25,20 +25,8 @@
  * In this example, the sum of the results would be 4 + 3 + 2 = 9.
  */
 
-const fs = require('fs');
+const readFile = require('./util/read-file');
 const _ = require('lodash');
-
-const readFile = () => {
-	return new Promise((resolve, reject) => {
-		fs.readFile('2-checksum-input.txt', 'utf8', (err, data) => {
-			if (err) {
-				return reject(err);
-			}
-
-			resolve(data);
-		});
-	});
-};
 
 const checksum = (input) => {
 	const rows = input.split('\n');
@@ -75,7 +63,7 @@ const checksumPart2 = (input) => {
 	return sum;
 };
 
-readFile()
+readFile('2-checksum-input.txt')
 	.then(data => {
 		console.log('Checksum part1:', checksum(data));
 		console.log('Checksum part2:', checksumPart2(data))

@@ -31,19 +31,7 @@
  * are left as 2 3 2 3 -1.
  */
 
-const fs = require('fs');
-
-const readFile = () => {
-	return new Promise((resolve, reject) => {
-		fs.readFile('5-instruction-jumps-input.txt', 'utf8', (err, data) => {
-			if (err) {
-				return reject(err);
-			}
-
-			resolve(data);
-		});
-	});
-};
+const readFile = require('./util/read-file');
 
 const stepsCalculator = (sequence, part2 = false) => {
 	let index = 0;
@@ -60,7 +48,7 @@ const stepsCalculator = (sequence, part2 = false) => {
 	return stepsCount;
 };
 
-readFile()
+readFile('5-instruction-jumps-input.txt')
 	.then(data => {
 		const sequence = data.split('\n').map(Number);
 		const sequencePt2 = sequence.slice();

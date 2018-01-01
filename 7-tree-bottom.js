@@ -42,20 +42,8 @@
  * What is the name of the bottom program?
  */
 
-const fs = require('fs');
+const readFile = require('./util/read-file');
 const _ = require('lodash');
-
-const readFile = () => {
-	return new Promise((resolve, reject) => {
-		fs.readFile('7-tree-bottom-input.txt', 'utf8', (err, data) => {
-			if (err) {
-				return reject(err);
-			}
-
-			resolve(data);
-		});
-	});
-};
 
 const parseLine = (line) => {
 	// from start of line to closing ')'
@@ -92,7 +80,7 @@ const rootFinder = (input) => {
 	return _.difference(parentPrograms, hasParents);
 }
 
-readFile()
+readFile('7-tree-bottom-input.txt')
 	.then(data => console.log('Root element is:', rootFinder(data)))
 	.catch(err => console.log(err));
 

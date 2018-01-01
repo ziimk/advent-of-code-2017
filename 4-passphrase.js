@@ -19,19 +19,7 @@
  * oiii ioii iioi iiio is not valid - any of these words can be rearranged to form any other word.
  */
 
-const fs = require('fs');
-
-const readFile = () => {
-	return new Promise((resolve, reject) => {
-		fs.readFile('4-passphrase-input.txt', 'utf8', (err, data) => {
-			if (err) {
-				return reject(err);
-			}
-
-			resolve(data);
-		});
-	});
-};
+const readFile = require('./util/read-file');
 
 /**
  * @param {Array} row
@@ -58,7 +46,7 @@ const validatePassphrases = (input) => {
 	return validCount;
 };
 
-readFile()
+readFile('4-passphrase-input.txt')
 	.then(data => console.log('Valid passphrases count:', validatePassphrases(data)))
 	.catch(err => console.log(err));
 
