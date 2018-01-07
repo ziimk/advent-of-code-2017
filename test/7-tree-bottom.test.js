@@ -40,10 +40,10 @@ describe('rootFinder()', () => {
 	
 		const result = rootFinder(input);
 
-		expect(result).toEqual([{
+		expect(result).toEqual({
 			children: ['ugml', 'padx', 'fwft'],
 			name: 'tknk',
 			weight: 41
-		}]);
+		});
 	});
 });
